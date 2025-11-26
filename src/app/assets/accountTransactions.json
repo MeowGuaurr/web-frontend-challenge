@@ -1,0 +1,21 @@
+{
+  "page": 1,
+  "size": 10,
+  "next": 0,
+  "total_count": 1,
+  "items": [
+    {
+      "transaction_number": "123456",
+      "description": "Paga quincenal",
+      "bank_description": "Banco",
+      "transaction_type": "Credit",
+      "amount": {
+        "currency": "USD",
+        "value": 1000
+      },
+      "origin": "123456789",
+      "destination": "987654321",
+      "transaction_date": "2025-09-24T03:14:46-0600"
+    }
+  ]
+}
