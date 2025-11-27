@@ -4,11 +4,11 @@ import React from "react";
 import Card from "../molecules/Card";
 import Text from "../atoms/Text";
 
-//dummy data to consume from api later
+//dummy data for cards ui purpose only
 const CARDS_DATA = [
   {
     last_digits: "9033",
-    holder_name: "Mike Smith",
+    holder_name: "card holder",
     expiry_date: "06/22",
     color_class: "bg-green-700",
     type: "debit",
@@ -16,7 +16,7 @@ const CARDS_DATA = [
   },
   {
     last_digits: "2847",
-    holder_name: "Mike Smith",
+    holder_name: "card holder",
     expiry_date: "04/24",
     color_class: "bg-green-800",
     type: "credit",
@@ -24,7 +24,7 @@ const CARDS_DATA = [
   },
   {
     last_digits: "2234",
-    holder_name: "Mike Smith",
+    holder_name: "card holder",
     expiry_date: "09/24",
     color_class: "bg-green-900",
     type: "credit",
@@ -35,11 +35,11 @@ const CARDS_DATA = [
 const CardSection: React.FC = () => {
   return (
     <section className="py-6">
-      <div className="flex items-center justify-between px-6">
+      <div className="flex items-center justify-between px-4 sm:px-6">
         <Text className="text-xl font-bold">Mis tarjetas</Text>
       </div>
 
-      <div className="mt-4 overflow-x-auto px-6">
+      <div className="mt-4 overflow-x-auto px-4 sm:px-6">
         <div className="flex gap-4 py-2 w-max">
           {CARDS_DATA.map((c, idx) => (
             <Card

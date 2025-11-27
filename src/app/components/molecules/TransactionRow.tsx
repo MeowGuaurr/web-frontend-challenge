@@ -17,7 +17,6 @@ const TransactionRow: React.FC<Props> = ({ transaction }) => {
       maximumFractionDigits: 2,
     });
 
-  // Without decimals
   const formatBalance = (value: number) =>
     value.toLocaleString("en-US", {
       minimumFractionDigits: 0,

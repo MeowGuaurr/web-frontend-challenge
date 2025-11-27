@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import IconButton from "../atoms/IconButton";
+import { Search } from "lucide-react";
 
 type SearchInputProps = {
   placeholder?: string;
@@ -19,7 +19,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
       }`}
     >
       <div className="mr-2">
-        <IconButton />
+        <Search className="w-5 h-5 text-gray-400" />
       </div>
       <input
         type="text"

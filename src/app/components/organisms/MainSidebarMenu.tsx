@@ -1,35 +1,48 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import NavItem from "../molecules/NavItem";
-import {
-  faGauge,
-  faRightLeft,
-  faMoneyBill,
-} from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Home, Repeat, CreditCard, User } from "lucide-react";
 
 const MainSidebarMenu: React.FC = () => {
-  const [activeItem, setActiveItem] = useState("Tablero");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const menuItems = [
-    { icon: faGauge, text: "Tablero" },
-    { icon: faRightLeft, text: "Transferir" },
-    { icon: faMoneyBill, text: "Pagar" },
-    { icon: faUser, text: "Transferencias" },
+    { icon: <Home className="w-5 h-5" />, text: "Tablero", to: "/" },
+    {
+      icon: <Repeat className="w-5 h-5" />,
+      text: "Transferir",
+      to: "/transfers",
+    },
+    {
+      icon: <CreditCard className="w-5 h-5" />,
+      text: "Pagar",
+      to: "/payments",
+    },
+    {
+      icon: <User className="w-5 h-5" />,
+      text: "Transferencias",
+      to: "/transactions",
+    },
   ];
 
   return (
-    <nav>
-      {menuItems.map((item) => (
-        <NavItem
-          key={item.text}
-          icon={item.icon}
-          text={item.text}
-          isActive={activeItem === item.text}
-          onClick={() => setActiveItem(item.text)}
-        />
-      ))}
+    <nav className="mt-4 space-y-1">
+      {menuItems.map((item) => {
+        const relativePath =
+          location.pathname.replace(/^\/dashboard/, "") || "/";
+        const isActive = relativePath === item.to;
+
+        return (
+          <NavItem
+            key={item.text}
+            icon={item.icon}
+            text={item.text}
+            isActive={isActive}
+            onClick={() => navigate(item.to)}
+          />
+        );
+      })}
     </nav>
   );
 };

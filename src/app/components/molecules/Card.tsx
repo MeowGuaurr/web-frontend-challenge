@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className={`w-96 h-52 rounded-lg p-4 text-white flex flex-col justify-between ${
+      className={`w-96 h-52 rounded-lg p-4 text-white flex flex-col justify-between shrink-0 ${
         type === "debit"
           ? "bg-linear-to-br from-carddDebitFrom to-cardCDebitTo"
           : "bg-linear-to-br from-cardCreditFrom to-cardCCreditTo"

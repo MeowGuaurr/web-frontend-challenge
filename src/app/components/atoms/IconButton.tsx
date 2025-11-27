@@ -1,30 +1,26 @@
 "use client";
 
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { IconDefinition } from "@fortawesome/fontawesome-common-types";
+import React, { type ReactNode } from "react";
 
-type IconButtonProps = {
-  icon?: IconDefinition;
-  onClick?: () => void;
+type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  icon?: ReactNode;
   ariaLabel?: string;
-  className?: string;
 };
 
 const IconButton: React.FC<IconButtonProps> = ({
   icon,
-  onClick,
   ariaLabel,
   className = "",
+  ...rest
 }) => {
   return (
     <button
       aria-label={ariaLabel}
-      onClick={onClick}
       className={`p-2 rounded-full hover:bg-gray-100 grid place-items-center ${className}`}
       type="button"
+      {...rest}
     >
-      {icon && <FontAwesomeIcon icon={icon} className="w-4 h-4" />}
+      {icon ?? <span className="w-4 h-4 inline-block" />}
     </button>
   );
 };

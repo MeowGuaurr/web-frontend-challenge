@@ -1,13 +1,20 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import React from "react";
 
 type IconProps = {
-  name: IconDefinition;
+  icon?: React.ReactNode;
   className?: string;
 };
 
-const Icon: React.FC<IconProps> = ({ name, className }) => {
-  return <FontAwesomeIcon icon={name} className={className} />;
+const Icon: React.FC<IconProps> = ({ icon, className = "" }) => {
+  if (!icon) return null;
+  if (React.isValidElement(icon)) {
+    return React.cloneElement(icon, {
+      className: [className, (icon.props as any)?.className || ""]
+        .join(" ")
+        .trim(),
+    } as any);
+  }
+  return <span className={className}>{icon}</span>;
 };
 
 export default Icon;

@@ -8,7 +8,6 @@ const SessionInfo: React.FC = () => {
   const [lastAccess, setLastAccess] = useState<string>("—");
 
   useEffect(() => {
-    // Fecha actual formateada
     const formattedDate = new Intl.DateTimeFormat("es-NI", {
       day: "2-digit",
       month: "2-digit",
@@ -27,8 +26,8 @@ const SessionInfo: React.FC = () => {
 
   return (
     <div className="mt-auto p-4 bg-gray-50">
-      <Text className="text-xs">IP: {ip}</Text>
-      <Text className="text-xs block mt-1">Último acceso: {lastAccess}</Text>
+      <Text className="text-s">IP: {ip}</Text>
+      <Text className="text-s block mt-1">Último acceso: {lastAccess}</Text>
     </div>
   );
 };
