@@ -85,7 +85,7 @@ const AccountSection: React.FC = () => {
   return (
     <section className="py-6">
       <div className="flex items-center justify-between px-4 sm:px-6">
-        <Text className="text-xl font-semibold">Cuentas</Text>
+        <Text className="text-xl font-bold">Cuentas</Text>
       </div>
 
       <div className="mt-4 overflow-x-auto px-4 sm:px-6">

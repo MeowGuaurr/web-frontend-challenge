@@ -21,7 +21,7 @@ const MainSidebarMenu: React.FC = () => {
     },
     {
       icon: <User className="w-5 h-5" />,
-      text: "Transferencias",
+      text: "Transacciones",
       to: "/transactions",
     },
   ];

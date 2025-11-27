@@ -13,7 +13,6 @@ type SidebarProps = {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen = true, onClose }) => {
   const mobileClasses = isOpen ? "translate-x-0" : "-translate-x-full";
   const ariaHidden = !isOpen;
-  const widthClass = "w-80";
   const paddingClass = "px-6 py-6";
 
   return (
@@ -21,7 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = true, onClose }) => {
       <aside
         aria-hidden={ariaHidden}
         className={`
-          w-80
+          w-72
           bg-white
           h-screen
           border-r border-gray-200

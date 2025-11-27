@@ -221,10 +221,6 @@ const TransferForm: React.FC = () => {
 
   return (
     <div className="bg-white p-4 rounded-md shadow-sm">
-      <h3 className="text-md font-semibold mb-4">
-        Formulario de transferencia
-      </h3>
-
       <FormGroup label="Cuenta origen">
         {loadingAccounts ? (
           <div>Cargando cuentas...</div>

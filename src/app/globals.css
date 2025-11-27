@@ -1,17 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
-@import "tailwindcss"; 
+@import "tailwindcss";
 
 @theme {
   --color-selectedItem: #edf5f2;
-  --color-carddDebitFrom: #00593B;
-  --color-cardCDebitTo: #096C4B;
-  --color-cardCreditFrom: #0B102E;
+  --color-selectedItemText: #3b8668;
+  --color-carddDebitFrom: #00593b;
+  --color-cardCDebitTo: #096c4b;
+  --color-cardCreditFrom: #0b102e;
   --color-cardCCreditTo: #121741;
-  --color-greenSecondary: #3B8668;
+  --color-greenSecondary: #3b8668;
 
-  --font-primary: 'Poppins', sans-serif;
-  --font-quicksand: 'Quicksand', sans-serif;
-  --font-lato: 'Lato', sans-serif;
+  --font-primary: "Poppins", sans-serif;
+  --font-quicksand: "Quicksand", sans-serif;
+  --font-lato: "Lato", sans-serif;
 }

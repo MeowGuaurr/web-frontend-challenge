@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className={`w-96 h-52 rounded-lg p-4 text-white flex flex-col justify-between shrink-0 ${
+      className={`w-80 h-52 rounded-lg p-4 text-white flex flex-col justify-between shrink-0 ${
         type === "debit"
           ? "bg-linear-to-br from-carddDebitFrom to-cardCDebitTo"
           : "bg-linear-to-br from-cardCreditFrom to-cardCCreditTo"
@@ -28,12 +28,12 @@ const Card: React.FC<CardProps> = ({
         <div className="text-sm font-bold">BANCO LAFISE</div>
       </div>
 
-      <div className="text-2xl font-quicksand">
+      <div className="text-xl font-quicksand ">
         <div>**** **** **** {last_digits}</div>
       </div>
 
       <div className="text-left flex">
-        <Text className="block text-md font-lato mt-1 text-white">
+        <Text className="block text-sm font-lato mt-1 text-white">
           {holder_name}
         </Text>
         <div className="text-xs ml-6">{expiry_date}</div>

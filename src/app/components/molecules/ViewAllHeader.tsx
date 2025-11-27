@@ -8,7 +8,7 @@ const ViewAllHeader: React.FC<Props> = ({
 }) => {
   return (
     <div className="flex justify-between items-center mb-4">
-      <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+      <h3 className="text-lg font-bold text-gray-900">{title}</h3>
       <a href="#" className="text-sm text-gray-500 hover:text-gray-700">
         {linkText}
       </a>

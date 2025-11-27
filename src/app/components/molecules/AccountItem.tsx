@@ -84,7 +84,7 @@ const AccountItem: React.FC<AccountItemProps> = ({
         <div className="mr-2 text-md">{countryFlag(currency)}</div>
       </div>
       <div>
-        <div className="text-lg font-semibold text-black">
+        <div className="text-md font-semibold text-black">
           {symbol}
           {balance.toLocaleString()}
         </div>

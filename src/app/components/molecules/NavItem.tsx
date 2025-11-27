@@ -15,10 +15,10 @@ const NavItem: React.FC<NavItemProps> = ({ icon, text, isActive, onClick }) => {
   const baseClasses =
     "flex items-center justify-between px-4 py-3 rounded-md cursor-pointer transition-colors";
 
-  const activeClasses = "bg-[#E6F4ED] text-emerald-700";
-  const inactiveClasses = "text-gray-800 hover:bg-gray-100";
+  const activeClasses = "bg-selectedItem";
+  const inactiveClasses = "text-black hover:bg-gray-100";
 
-  const iconClasses = isActive ? "text-emerald-700" : "text-gray-700";
+  const iconClasses = isActive ? "text-selectedItemText" : "text-black";
 
   return (
     <div onClick={onClick}>
@@ -34,9 +34,17 @@ const NavItem: React.FC<NavItemProps> = ({ icon, text, isActive, onClick }) => {
           >
             {icon}
           </div>
-          <Text className="text-sm">{text}</Text>
+          <Text
+            className={`text-sm ${
+              isActive ? "text-selectedItemText" : "text-black"
+            }`}
+          >
+            {text}
+          </Text>
         </div>
-        <Arrow />
+        <Arrow
+          className={isActive ? "text-selectedItemText" : "text-gray-400"}
+        />
       </ActiveBackground>
     </div>
   );
