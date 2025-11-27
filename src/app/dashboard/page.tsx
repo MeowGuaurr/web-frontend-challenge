@@ -5,6 +5,7 @@ import Sidebar from "@/app/components/organisms/Sidebar";
 import Header from "../components/organisms/Header";
 import CardSection from "@/app/components/organisms/CardSection";
 import AccountSection from "@/app/components/organisms/AccountSection";
+import TransactionTable from "../components/organisms/TransactionTable";
 
 export default function DashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -15,10 +16,10 @@ export default function DashboardPage() {
 
   return (
     <div className="flex h-screen">
-      {/* Sidebar solo se muestra cuando isSidebarOpen es true */}
+      {/* Sidebar only shows when isSidebarOpen is true */}
       {isSidebarOpen && <Sidebar />}
 
-      {/* Contenedor principal: header arriba, contenido abajo */}
+      {/* primary container*/}
       <div className="flex flex-1 flex-col">
         <Header
           isSidebarOpen={isSidebarOpen}
@@ -29,6 +30,7 @@ export default function DashboardPage() {
           <div className="max-w-6xl mx-auto">
             <CardSection />
             <AccountSection />
+            <TransactionTable />
           </div>
         </main>
       </div>

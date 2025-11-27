@@ -18,7 +18,7 @@ const SessionInfo: React.FC = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLastAccess(formattedDate);
 
-    // Obtener IP pública con source de external website
+    // Obtain public IP from external website
     fetch("https://api.ipify.org?format=json")
       .then((res) => res.json())
       .then((data) => setIp(data.ip))

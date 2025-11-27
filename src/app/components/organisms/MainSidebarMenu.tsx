@@ -2,30 +2,32 @@
 
 import React, { useState } from "react";
 import NavItem from "../molecules/NavItem";
+import {
+  faGauge,
+  faRightLeft,
+  faMoneyBill,
+} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const MainSidebarMenu: React.FC = () => {
   const [activeItem, setActiveItem] = useState("Tablero");
 
   const menuItems = [
-    { iconName: "home", text: "Tablero" },
-    { iconName: "user", text: "Transferir" },
-    { iconName: "credit-card", text: "Pagar" },
-    { iconName: "arrow-right-arrow-left", text: "Transferencias" },
+    { icon: faGauge, text: "Tablero" },
+    { icon: faRightLeft, text: "Transferir" },
+    { icon: faMoneyBill, text: "Pagar" },
+    { icon: faUser, text: "Transferencias" },
   ];
-
-  const handleItemClick = (text: string) => {
-    setActiveItem(text);
-  };
 
   return (
     <nav>
       {menuItems.map((item) => (
         <NavItem
           key={item.text}
-          iconName={item.iconName}
+          icon={item.icon}
           text={item.text}
           isActive={activeItem === item.text}
-          onClick={() => handleItemClick(item.text)}
+          onClick={() => setActiveItem(item.text)}
         />
       ))}
     </nav>

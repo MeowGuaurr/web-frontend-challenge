@@ -1,27 +1,30 @@
 "use client";
 
-import React, { useState } from 'react';
-import Text from '../atoms/Text';
-import IconButton from '../atoms/IconButton';
+import React, { useState } from "react";
+import Text from "../atoms/Text";
+import IconButton from "../atoms/IconButton";
+import { faCopy as copyIcon } from "@fortawesome/free-regular-svg-icons";
 
 type AccountItemProps = {
   alias: string;
   account_number: string;
   balance: number;
   currency: string;
-  country_code?: string; // 'NI', 'US'
 };
 
-function countryFlag(code?: string) {
-  if (!code) return '🏳️';
-  const map: Record<string, string> = {
-    NI: '🇳🇮',
-    US: '🇺🇸',
-  };
-  return map[code] ?? '🏳️';
+function countryFlag(currency: string): string {
+  // couldn't find free icons, so using emojis
+  if (currency === "NIO") return "🇳🇮";
+  if (currency === "USD") return "🇺🇸";
+  return "🇳🇮";
 }
 
-const AccountItem: React.FC<AccountItemProps> = ({ alias, account_number, balance, currency, country_code }) => {
+const AccountItem: React.FC<AccountItemProps> = ({
+  alias,
+  account_number,
+  balance,
+  currency,
+}) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -34,28 +37,35 @@ const AccountItem: React.FC<AccountItemProps> = ({ alias, account_number, balanc
     }
   };
 
-  const symbol = currency === 'USD' ? '$' : 'C$';
+  const symbol = currency === "USD" ? "$" : "C$";
 
   return (
-    <div className="w-80 p-5 bg-white rounded-lg shadow-md flex flex-col justify-between">
+    <div className="w-80 h-40 p-4 gap-9 rounded-sm bg-white shadow-md flex flex-col justify-between">
       <div className="flex items-start justify-between">
         <div>
-          <Text className="text-sm font-semibold">{alias}</Text>
-          <div className="flex items-center mt-2 text-xs text-gray-500">
-            <div className="mr-2">{countryFlag(country_code)}</div>
-            <div className="flex items-center gap-2">
-              <div className="text-xs font-mono">{account_number}</div>
-              <IconButton ariaLabel="Copiar número" onClick={handleCopy} icon={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4"><path d="M8 7V4a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2h-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>} />
-              {copied && <span className="text-xs text-green-700">Copiado</span>}
+          <Text className="text-lg font-semibold">
+            {currency}&nbsp;{alias}
+          </Text>
+          <div className="flex items-center mt-2 text-xs text-greenSecondary">
+            <div className="flex items-center">
+              <div className="text-sm font-medium">{account_number}</div>
+              <IconButton
+                ariaLabel="Copiar número"
+                onClick={handleCopy}
+                icon={copyIcon}
+                className="text-greenSecondary"
+              />
+              {copied && <span className="text-xs text-black">Copiado</span>}
             </div>
           </div>
         </div>
 
-        <div className="text-right">
-          <Text className="text-xs">Saldo</Text>
-          <div className="text-2xl font-bold text-green-800">
-            {symbol}{balance.toLocaleString()}
-          </div>
+        <div className="mr-2 text-lg">{countryFlag(currency)}</div>
+      </div>
+      <div>
+        <div className="text-2xl font-semibold text-black">
+          {symbol}
+          {balance.toLocaleString()}
         </div>
       </div>
     </div>

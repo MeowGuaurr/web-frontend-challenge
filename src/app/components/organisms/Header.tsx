@@ -5,6 +5,7 @@ import IconButton from "../atoms/IconButton";
 import Avatar from "../atoms/Avatar";
 import SearchInput from "../molecules/SearchInput";
 import user from "../../assets/user.json";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 type HeaderProps = {
   isSidebarOpen: boolean;
@@ -16,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ isSidebarOpen, onToggleSidebar }) => {
     <header className="flex items-center justify-between h-16 w-full px-6 bg-white border-b border-gray-200">
       <div className="flex items-center space-x-2">
         <IconButton
+          icon={faBars}
           ariaLabel="Abrir/Cerrar menú lateral"
           onClick={onToggleSidebar}
         />

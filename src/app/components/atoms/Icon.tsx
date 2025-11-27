@@ -1,13 +1,13 @@
-import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 type IconProps = {
-  name: string;
+  name: IconDefinition;
   className?: string;
 };
 
 const Icon: React.FC<IconProps> = ({ name, className }) => {
-  // This would typically use a library like react-icons or custom SVGs
-  return <div className={`w-6 h-6 bg-gray-300 ${className}`}>{name}</div>;
+  return <FontAwesomeIcon icon={name} className={className} />;
 };
 
 export default Icon;

@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import Select from "../atoms/Select";
 
-const EXCHANGE_RATE_NIO_PER_USD = 36.5; // dato estático con fines ejemplificativos
+const EXCHANGE_RATE_NIO_PER_USD = 36.5; // static conversion rate
 const BASE_AMOUNT = 1;
 
 const CurrencySelector: React.FC = () => {
