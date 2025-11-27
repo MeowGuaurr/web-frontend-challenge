@@ -2,6 +2,8 @@
 
 import React, { useState, useMemo } from "react";
 import Select from "../atoms/Select";
+import Icon from "../atoms/Icon";
+import { ArrowLeftRightIcon } from "lucide-react";
 
 const EXCHANGE_RATE_NIO_PER_USD = 36.5; // static conversion rate
 const BASE_AMOUNT = 1;
@@ -34,8 +36,9 @@ const CurrencySelector: React.FC = () => {
   return (
     <div className="space-y-2 text-xs">
       <div className="flex items-center gap-2">
-        <Select options={currencies} value={"NIO"} />
+        <Select className="text-gray-500" options={currencies} value={"NIO"} />
         <Select
+          className="text-gray-500"
           options={currencies}
           value={toCurrency}
           onChange={(value) => setToCurrency(value as "NIO" | "USD")}
@@ -44,14 +47,7 @@ const CurrencySelector: React.FC = () => {
 
       <div className="flex items-center justify-center gap-4">
         <span className="font-medium">{nioValue.toFixed(2)}</span>
-
-        <button
-          type="button"
-          className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-soft text-white text-[10px]"
-        >
-          ⇄
-        </button>
-
+        {<ArrowLeftRightIcon className="w-6 h-6" />}
         <span className="font-medium">{usdValue.toFixed(2)}</span>
       </div>
     </div>

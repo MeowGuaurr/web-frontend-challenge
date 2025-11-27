@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({
       </div>
 
       <div className="text-left flex">
-        <Text className="block text-lg font-lato mt-1 text-white">
+        <Text className="block text-md font-lato mt-1 text-white">
           {holder_name}
         </Text>
         <div className="text-xs ml-6">{expiry_date}</div>

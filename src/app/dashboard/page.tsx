@@ -32,11 +32,9 @@ const ProtectedLayout: React.FC = () => {
         />
 
         <main
-          className={`flex-1 pt-16 p-6 bg-gray-50 overflow-y-auto transition-all duration-200 ${
-            isSidebarOpen ? "md:ml-80" : "md:ml-0"
-          }`}
+          className={`flex-1 pt-16 p-6 bg-gray-50 overflow-y-auto transition-all duration-200 `}
         >
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-8xl mx-auto">
             <Routes>
               <Route path="/" element={<DashboardHome />} />
               <Route path="/transfers" element={<TransfersPage />} />

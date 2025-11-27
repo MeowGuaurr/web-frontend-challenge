@@ -34,7 +34,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, text, isActive, onClick }) => {
           >
             {icon}
           </div>
-          <Text className="text-lg">{text}</Text>
+          <Text className="text-sm">{text}</Text>
         </div>
         <Arrow />
       </ActiveBackground>

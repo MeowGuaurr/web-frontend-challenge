@@ -22,7 +22,7 @@ const ConfirmModal: React.FC<{
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="bg-white rounded-md w-full max-w-lg p-6">
         <div className="mb-4">
-          <h3 className="text-lg font-semibold">{title}</h3>
+          <h3 className="text-sm font-semibold">{title}</h3>
         </div>
         <div className="mb-6 text-sm text-gray-700">{children}</div>
         <div className="flex justify-end gap-3">

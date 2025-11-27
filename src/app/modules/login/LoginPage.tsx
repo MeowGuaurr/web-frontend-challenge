@@ -41,7 +41,7 @@ const LoginPage: React.FC = () => {
         onSubmit={handleSubmit}
         className="p-6 bg-white rounded-lg shadow-lg w-96"
       >
-        <h2 className="text-lg font-semibold mb-4">Iniciar sesión</h2>
+        <h2 className="text-md font-semibold mb-4">Iniciar sesión</h2>
         <label className="block text-sm text-gray-600 mb-2">
           ID de usuario
         </label>

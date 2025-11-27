@@ -40,7 +40,7 @@ const AccountItem: React.FC<AccountItemProps> = ({
     <div className="w-80 h-40 p-4 gap-9 rounded-sm bg-white shadow-md flex flex-col justify-between shrink-0">
       <div className="flex items-start justify-between">
         <div>
-          <Text className="text-lg font-semibold">
+          <Text className="text-md font-semibold">
             {currency}&nbsp;{alias}
           </Text>
           <div className="flex items-center mt-2 text-xs text-greenSecondary">
@@ -81,10 +81,10 @@ const AccountItem: React.FC<AccountItemProps> = ({
           </div>
         </div>
 
-        <div className="mr-2 text-lg">{countryFlag(currency)}</div>
+        <div className="mr-2 text-md">{countryFlag(currency)}</div>
       </div>
       <div>
-        <div className="text-2xl font-semibold text-black">
+        <div className="text-lg font-semibold text-black">
           {symbol}
           {balance.toLocaleString()}
         </div>
