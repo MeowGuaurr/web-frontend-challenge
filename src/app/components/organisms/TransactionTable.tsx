@@ -1,7 +1,9 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { useUser } from "@/app/context/UserContext";
+import React, { useEffect, useState } from 'react';
+// TransactionTable fetches the account's transactions from the API and maps
+// the backend's `items` shape into the local `Transaction` type used by the UI.
+import { useUser } from '@/app/context/UserContext';
 
 type Transaction = {
   id: string;
@@ -25,12 +27,10 @@ const TransactionTable: React.FC = () => {
       try {
         setLoading(true);
         setError(null);
-        const r = await fetch(
-          `http://localhost:5566/accounts/${accountId}/transactions`
-        );
+        const r = await fetch(`http://localhost:5566/accounts/${accountId}/transactions`);
         if (!mounted) return;
         if (!r.ok) {
-          setError("Error al obtener transacciones");
+          setError('Error al obtener transacciones');
           setTransactions([]);
           return;
         }
@@ -39,22 +39,16 @@ const TransactionTable: React.FC = () => {
         const items = Array.isArray(data.items) ? data.items : [];
         const mapped: Transaction[] = items.map((it: any) => ({
           id: it.transaction_number ?? Math.random().toString(36).slice(2),
-          date: it.transaction_date ?? "",
-          description: it.description ?? it.bank_description ?? "",
-          amount:
-            typeof it.amount === "object"
-              ? it.amount.value ?? 0
-              : it.amount ?? 0,
-          currency:
-            typeof it.amount === "object"
-              ? it.amount.currency ?? ""
-              : it.currency ?? "",
+          date: it.transaction_date ?? '',
+          description: it.description ?? it.bank_description ?? '',
+          amount: typeof it.amount === 'object' ? it.amount.value ?? 0 : it.amount ?? 0,
+          currency: typeof it.amount === 'object' ? it.amount.currency ?? '' : it.currency ?? '',
         }));
         if (!mounted) return;
         setTransactions(mapped);
       } catch (e) {
         if (!mounted) return;
-        setError("No se pudieron obtener las transacciones");
+        setError('No se pudieron obtener las transacciones');
         setTransactions([]);
       } finally {
         if (mounted) setLoading(false);
@@ -68,10 +62,7 @@ const TransactionTable: React.FC = () => {
     };
   }, [accountId]);
 
-  if (!accountId)
-    return (
-      <div className="p-6">Selecciona una cuenta para ver transacciones.</div>
-    );
+  if (!accountId) return <div className="p-6">Selecciona una cuenta para ver transacciones.</div>;
   if (loading) return <div className="p-6">Cargando transacciones...</div>;
   if (error) return <div className="p-6 text-red-600">{error}</div>;
 
@@ -98,9 +89,7 @@ const TransactionTable: React.FC = () => {
             <tr key={t.id} className="border-b last:border-b-0">
               <td className="py-3 text-sm text-gray-600">{t.date}</td>
               <td className="py-3 text-sm">{t.description}</td>
-              <td className="py-3 text-sm font-semibold">
-                {t.amount.toLocaleString()}
-              </td>
+              <td className="py-3 text-sm font-semibold">{t.amount.toLocaleString()}</td>
               <td className="py-3 text-sm text-gray-600">{t.currency}</td>
             </tr>
           ))}
