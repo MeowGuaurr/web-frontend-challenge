@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏦 Proyecto Frontend — Prueba Técnica (Next.js + Tailwind + Componentes UI)
 
-## Getting Started
+Este proyecto es una **prueba técnica frontend** construida con **Next.js **, **React**, **Tailwind CSS**, y una arquitectura basada en **componentes reutilizables (atoms, molecules, organisms)**.
 
-First, run the development server:
+El objetivo es implementar una interfaz bancaria sencilla con:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Sidebar dinámico
+- Vista de Dashboard
+- Vista de Transferencias con **formulario paso a paso (stepper)**
+- Confirmación de transferencia mediante modal
+- Componentes reusables (cards, inputs, selectors, icon buttons, etc.)
+
+## 🚀 Tecnologías utilizadas
+
+| Tecnología | Uso |
+|-----------|-----|
+| **Next.js (App Router)** | Renderizado del lado del servidor y cliente |
+| **React** | UI + estado local |
+| **Tailwind CSS** | Sistema de estilos |
+| **Lucide Icons** | Iconografía ligera |
+| **TypeScript** | Tipado robusto en todo el proyecto |
+| **Arquitectura Atómica** | Organización de componentes |
+
+## 🧱 Arquitectura del proyecto
+
+El proyecto sigue principios de **Atomic Design**:
+
+```
+src/
+ ├── app/
+ │    ├── page.tsx
+ │    ├── dashboard/
+ │    ├── transfers/
+ │    └── layout.tsx
+ │
+ ├── components/
+ │    ├── atoms/
+ │    ├── molecules/
+ │    ├── organisms/
+ │
+ ├── hooks/
+ │    └── useTransferForm.ts
+ │
+ ├── context/
+ │    └── UserContext.tsx
+ │
+ ├── styles/
+ │    └── globals.css
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💸 Flujo principal: Transferencias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Incluye un formulario paso a paso:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Cuenta origen
+2. Cuenta destino
+3. Monto
+4. Datos adicionales
 
-## Learn More
+Y un modal de confirmación de transferencia.
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Instalación y ejecución
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Abrir en:
 
-## Deploy on Vercel
+```
+http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧪 Funcionalidades incluidas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Validación de saldo y monto
+- Modal de confirmación
+- Stepper visual
+- Componentes reutilizables
+
