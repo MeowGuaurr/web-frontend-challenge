@@ -1,19 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
 const CallToAction: React.FC<
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: "primary" | "secondary";
+    variant?: 'primary' | 'secondary';
   }
-> = ({ variant = "primary", children, ...rest }) => {
-  const base = "px-4 py-2 rounded-md font-medium";
-  if (variant === "primary") {
+> = ({ variant = 'primary', children, ...rest }) => {
+  const base = 'px-4 py-2 rounded-md font-medium';
+  if (variant === 'primary') {
     return (
-      <button
-        {...rest}
-        className={`${base} bg-green-600 text-white hover:bg-green-700`}
-      >
+      <button {...rest} className={`${base} bg-selectedItemText text-white`}>
         {children}
       </button>
     );

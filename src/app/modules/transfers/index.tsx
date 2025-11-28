@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React from "react";
-import TransferForm from "@/app/components/organisms/TransferForm";
+import React from 'react';
+import TransferForm from '@/app/components/organisms/TransferForm';
 
 const TransfersPage: React.FC = () => {
   return (

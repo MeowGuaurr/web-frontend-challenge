@@ -1,18 +1,13 @@
-"use client";
+'use client';
 
-import React, { type ReactNode } from "react";
+import React, { type ReactNode } from 'react';
 
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: ReactNode;
   ariaLabel?: string;
 };
 
-const IconButton: React.FC<IconButtonProps> = ({
-  icon,
-  ariaLabel,
-  className = "",
-  ...rest
-}) => {
+const IconButton: React.FC<IconButtonProps> = ({ icon, ariaLabel, className = '', ...rest }) => {
   return (
     <button
       aria-label={ariaLabel}
