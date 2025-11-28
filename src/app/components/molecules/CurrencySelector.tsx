@@ -1,30 +1,30 @@
-"use client";
-
-import React, { useState, useMemo } from "react";
-import Select from "../atoms/Select";
-import Icon from "../atoms/Icon";
-import { ArrowLeftRightIcon } from "lucide-react";
+'use client';
+// This component allows users to select currencies and see their conversion based on a static exchange rate.
+// Its static at the moment, but it could be extended to fetch live rates in the future with an input like its designed.
+import React, { useState, useMemo } from 'react';
+import Select from '../atoms/Select';
+import { ArrowLeftRightIcon } from 'lucide-react';
 
 const EXCHANGE_RATE_NIO_PER_USD = 36.5; // static conversion rate
 const BASE_AMOUNT = 1;
 
 const CurrencySelector: React.FC = () => {
   const currencies = [
-    { value: "NIO", label: "Córdoba" },
-    { value: "USD", label: "USD" },
+    { value: 'NIO', label: 'Córdoba' },
+    { value: 'USD', label: 'USD' },
   ];
 
-  const [fromCurrency, setFromCurrency] = useState<"NIO" | "USD">("NIO");
-  const [toCurrency, setToCurrency] = useState<"NIO" | "USD">("USD");
+  const [fromCurrency, setFromCurrency] = useState<'NIO' | 'USD'>('NIO');
+  const [toCurrency, setToCurrency] = useState<'NIO' | 'USD'>('USD');
 
   const { nioValue, usdValue } = useMemo(() => {
-    if (fromCurrency === "NIO" && toCurrency === "USD") {
+    if (fromCurrency === 'NIO' && toCurrency === 'USD') {
       const nio = BASE_AMOUNT;
       const usd = nio / EXCHANGE_RATE_NIO_PER_USD;
       return { nioValue: nio, usdValue: usd };
     }
 
-    if (fromCurrency === "USD" && toCurrency === "NIO") {
+    if (fromCurrency === 'USD' && toCurrency === 'NIO') {
       const usd = BASE_AMOUNT;
       const nio = usd * EXCHANGE_RATE_NIO_PER_USD;
       return { nioValue: nio, usdValue: usd };
@@ -36,12 +36,12 @@ const CurrencySelector: React.FC = () => {
   return (
     <div className="space-y-2 text-xs">
       <div className="flex items-center gap-2">
-        <Select className="text-gray-500" options={currencies} value={"NIO"} />
+        <Select className="text-gray-500" options={currencies} value={'NIO'} />
         <Select
           className="text-gray-500"
           options={currencies}
           value={toCurrency}
-          onChange={(value) => setToCurrency(value as "NIO" | "USD")}
+          onChange={(value) => setToCurrency(value as 'NIO' | 'USD')}
         />
       </div>
 
